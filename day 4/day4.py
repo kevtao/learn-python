@@ -153,10 +153,27 @@ def reshaping(df):
     )
     print(df)
 
-reshaping(df)
+# reshaping(df)
 
 def timeseries():
-    rng = pd.date_range("1/1/2012", periods=100, freq="s")
-    ts = pd.Series(np.random.randint(0, 500, len(rng)), index=rng)
-    print(ts.resample("5Min").sum())
-    
+    rng = pd.date_range("6/5/2024", periods=100, freq="s")           # creates 100 data points 1 point = 1 second
+    ts = pd.Series(np.random.randint(0, 500, len(rng)), index=rng)   # gives a array of random integers and becomes a series using values from rng
+    print(ts.resample("5Min").sum())                                 # calculates the sum of values withen 5 minute interval
+    rng = pd.date_range("6/5/2024 00:00", periods=5, freq="D")       # same as line 159 but 1 point = 1 day and it starts at 00:00
+    ts = pd.Series(np.random.randn(len(rng)), rng)                   # same as line 160
+    print(ts)                                                        # prints as a series with dates and values
+    ts_utc = ts.tz_localize("UTC")                                   # sets it to UTC timezone
+    print(ts_utc)
+    ts_utc.tz_convert("US/Eastern")                                  # sets it to another timezone
+    print(ts_utc)
+    print(rng)
+    print(rng + pd.offsets.BuisnessDay(5))
+
+timeseries()
+
+def categorials():
+    df = pd.DataFrame(
+        {"id": [1, 2, 3, 4, 5, 6], "raw_grade": ["a", "b", "b", "a", "a", "e"]}
+    )
+    df["grade"] = df["raw_grade"].astype("category")
+    df["grade"]
