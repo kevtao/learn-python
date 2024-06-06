@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 s = pd.Series([1, 3, 5, np.nan, 6, 8])
 # print(s)
@@ -50,7 +51,7 @@ def selection(df):
     print(df.iloc[[1, 2, 4], [0, 2]]) # selects specific rows then columns
     print(df.iloc[1:3, :])            # selects rows then all columns
     print(df.iloc[:, 1:3])            # selects columns then all rows
-    print(df.iloc[1, 1])              # gets term at specific point 
+    print(df.iloc[1, 1])              # gets term at specific point
     print(df.iat[1, 1])               # same thing
     print(df[df["A"] > 0])            # gets values in slected column that meets condition
     print(df[df > 0])                 # shows value that meet condition, others become NaN
@@ -169,11 +170,25 @@ def timeseries():
     print(rng)
     print(rng + pd.offsets.BuisnessDay(5))
 
-timeseries()
+# timeseries()
 
 def categorials():
-    df = pd.DataFrame(
+    df = pd.DataFrame(                                              # creates to dfs one called id and another called raw_grade
         {"id": [1, 2, 3, 4, 5, 6], "raw_grade": ["a", "b", "b", "a", "a", "e"]}
     )
-    df["grade"] = df["raw_grade"].astype("category")
-    df["grade"]
+    df["grade"] = df["raw_grade"].astype("category")                # creates new category which is raw_grade as a data type
+    print(df["grade"])
+    new_categories = ["very good", "good", "very bad"]              # creates new categories to categorize grades
+    df["grade"] = df["grade"].cat.rename_categories(new_categories) # renames the grades  to new categories
+    df["grade"] = df["grade"].cat.set_categories(
+        ["very bad", "bad", "medium", "good", "very good"]          # creates a new set of categories
+    )
+    print(df["grade"])
+    df.sort_values(by="grade")                                      # sorts the df by the grade column
+    print(df.groupby("grade", observed=False).size())                     # groups the grades by the grade column
+    
+# categorials()
+
+df = pd.read_csv("titanic.csv")
+x = df[(df["Age"] >= 20) & (df["Age"] < 30) & (df["Survived"] == 0)]
+print(len(x))
