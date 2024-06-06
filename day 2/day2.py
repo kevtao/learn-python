@@ -35,7 +35,7 @@ import csv
 titanic = []
 ageGrp20 = []
 alive = []
-with open('day 2/titanic.csv', mode='r') as file:
+with open('titanic.csv', mode='r') as file:
     csv_reader = csv.reader(file)
     next(csv_reader)
     for row in csv_reader:
