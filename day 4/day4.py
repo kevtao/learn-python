@@ -2,13 +2,13 @@ import numpy as np
 import pandas as pd
 
 s = pd.Series([1, 3, 5, np.nan, 6, 8])
-print(s)
+# print(s)
 
 dates = pd.date_range("20240605", periods=6)
-print(dates)
+# print(dates)
 
 df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list("ABCD"))       # random numbers generate around standard normal distribution (mean 0, stand devi 1)
-print(df)
+# print(df)
 
 df2 = pd.DataFrame(
     {
@@ -33,6 +33,7 @@ def viewData(df):
     print(df.T)              # rows = column, column = rows
     print(df.sort_index(axis=1, ascending=False))   # sorts by index
     print(df.sort_values(by="B"))                   # sorts by value
+
 # viewData()
 
 def selection(df):
@@ -109,4 +110,52 @@ def merge(df):
     left = pd.DataFrame({"key": ["foo", "bar"], "lval": [1, 2]})
     right = pd.DataFrame({"key": ["foo", "bar"], "rval": [4, 5]})
     print(pd.merge(left, right, on="key"))         # merges data frames lef tand right based on key but is in order 1 4 and 2 5 (only when they are different)
-merge(df)
+
+# merge(df)
+
+def grouping(df):
+    df = pd.DataFrame(                              # new data frame
+        {
+            "A": ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+            "B": ["one", "one", "two", "three", "two", "two", "one", "three"],
+            "C": np.random.randn(8),
+            "D": np.random.randn(8),
+        }
+    )
+    print(df)
+    print(df.groupby("A")[["C", "D"]].sum())        # groups the data frame into foos and bars/unique terms ten takes the sum of the terms in row C and D for each group
+    df.groupby(["A", "B"]).sum()                    # groups the data frame into foos and bars and sub sections of one two or threes then adds up the sums for C and D
+
+# grouping(df)
+
+def reshaping(df):
+    arrays = [                                      # create a list of lists or list of arrays
+        ["bar", "bar", "baz", "baz", "foo", "foo", "qux", "qux"],
+        ["one", "two", "one", "two", "one", "two", "one", "two"],
+    ]
+    index = pd.MultiIndex.from_arrays(arrays, names=["first", "second"])         # lines up the terms and pairs them
+    df = pd.DataFrame(np.random.randn(8, 2), index=index, columns=["A", "B"])    # it uses the groups created during index and creates columns A and B assigning random values
+    df2 = df[:4]                                    # uses only the first 4 rows of the data frame and assigns it to df2
+    print(df2)
+    stacked = df2.stack(future_stack=True)          # stacks the groups vertically in a  long list
+    print(stacked)
+    print(stacked.unstack())                        # creates column B and A and align them with the ones and twos (unstacking the last row)
+    print(stacked.unstack(1))                       # unstacks the second row
+    print(stacked.unstack(0))                       # unstacks the first row
+    df = pd.DataFrame(                              # creates a 12 * 5 data frame where * n means repeating it n times
+        {
+            "A": ["one", "one", "two", "three"] * 3,
+            "B": ["A", "B", "C"] * 4,
+            "C": ["foo", "foo", "foo", "bar", "bar", "bar"] * 2,
+            "D": np.random.randn(12),
+            "E": np.random.randn(12),
+        }
+    )
+    print(df)
+
+reshaping(df)
+
+def timeseries():
+    rng = pd.date_range("1/1/2012", periods=100, freq="s")
+    ts = pd.Series(np.random.randint(0, 500, len(rng)), index=rng)
+    print(ts.resample("5Min").sum())
