@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 s = pd.Series([1, 3, 5, np.nan, 6, 8])
@@ -192,3 +193,28 @@ def categorials():
 df = pd.read_csv("titanic.csv")
 x = df[(df["Age"] >= 20) & (df["Age"] < 30) & (df["Survived"] == 0)]
 print(len(x))
+
+# Drop rows with missing 'age' or 'survived' values
+titanic = df.dropna(subset=['Age', 'Survived'])
+
+# Define age groups
+age_bins = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+titanic['age_group'] = pd.cut(titanic['Age'], bins=age_bins)
+print(titanic.head())
+
+# Calculate the death rate for each age group
+death_rates = titanic.groupby('age_group')['Survived'].apply(lambda x: 1 - x.mean()).reset_index()
+print(death_rates.head())
+# Rename columns for clarity
+death_rates.columns = ['age_group', 'death_rate']
+
+# Plot the death rate by age group
+plt.figure(figsize=(10, 6))
+sns.barplot(x='age_group', y='death_rate', data=death_rates, palette='viridis')
+
+plt.title('Titanic Death Rate by Age Group')
+plt.xlabel('Age Group')
+plt.ylabel('Death Rate')
+plt.ylim(0, 1)
+plt.show()
