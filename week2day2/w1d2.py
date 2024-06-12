@@ -1,7 +1,8 @@
 from pymongo import MongoClient
 import certifi
+import os
 
-connection_string = "mongodb+srv://kevin:zK1y7wX4X9MqIMno@cluster0.pnh73bn.mongodb.net/"
+connection_string = os.environ['MongoConnection']
 client = MongoClient(connection_string, tlsCAFile=certifi.where())
 db = client.sample_mflix
 collection = db.movies
