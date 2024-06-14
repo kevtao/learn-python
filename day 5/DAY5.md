@@ -3,5 +3,5 @@
 - reading and changing code
 - adding features (create)
 
-## functions
+### functions
 - creating "animations"

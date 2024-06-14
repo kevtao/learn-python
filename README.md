@@ -1,80 +1,21 @@
 # Learning programming
 
-## learning python
+## Learning python
 
+### Week 1
 1. [Basic Data Types](./day%201/DAY1.md)
 
-### Understanding basics
+2. [Advanced Data Types](./day%202/DAY2.md)
 
-### Learning numbers
+3. [Learning Functions](./day%203/DAY3.md)
 
-- math operations
-- using mod (%)
+4. [Learn Pandas](./day%204/DAY4.md)
 
-### Booleans
+5. [functions and games](./day%205/DAY5.md)
 
-- using odd or even as true or false
+### Week 2
+6. [Pulling from website](./week1day1/w1d1.md)
 
-### Strings
+7. [MongoDb](./week1day2/w1d2.md)
 
-- manipulating and using strings
-
-### date/time
-
-- comparing times
-
-## advanced data types
-
-### dictionarys and arrays
-
-- taking information and adding information to dicts and arrays
-
-## learning functions
-
-### organizing code and repeating tasks
-
-- using math formulas
-
-- making recursive code
-
-## learn pandas
-
-### series
-
-- creating a series
-- manipulating series
-
-### dataframes
-
-- creating dataframes
-- adding to data frames
-- manipulating and reading data frames
-
-## functions and games
-
-### games
-
-- reading and changing code
-- adding features (create)
-
-## functions
-
-- creating "animations"
-
-## pulling from website
-
-### taking a json
-
-- reading a json
-- adding data to a dataframe
-
-## mongoDb / backend
-
-### linking to a collection of data
-
-- create update read and delete information in a collection
-
-### linking to a url
-
-- making a backend server
-- updating collection on a website on other computers
+8. [MongoDb / Backend](./week1day3/weekday3.md)

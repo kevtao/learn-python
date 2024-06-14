@@ -1,4 +1,4 @@
 ## Functions
 - organize codes
 - recursive code
-- math formulas
+- using math formulas
