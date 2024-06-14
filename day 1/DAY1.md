@@ -1,17 +1,16 @@
-## Learning numbers
+### Learning numbers
 
 - math operations
 - using mod (%)
 
-## Booleans
+### Booleans
 
 - using odd or even as true or false
 
-## Strings
+### Strings
 
 - manipulating and using strings
-- CRUD
 
-## Date/Time
+### date/time
 
 - comparing times

@@ -1,6 +1,10 @@
-# Learning Python
+# Learning programming
 
-## Understanding basics
+## learning python
+
+1. [Basic Data Types](./day%201/DAY1.md)
+
+### Understanding basics
 
 ### Learning numbers
 
