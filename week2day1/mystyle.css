@@ -5,3 +5,12 @@ h1 {
     color: navy;
     margin-left: 20px;
 }
+li {
+    display: inline;
+}
+span {
+    display: block;
+}
+a {
+    display: block;
+  }
