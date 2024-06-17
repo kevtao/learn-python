@@ -1,16 +1,193 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong|Creepster">
 <link rel="stylesheet" href="mystyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon|outline|emboss|shadow-multiple">">
+<script src="https://kit.fontawesome.com/1d99666099.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
+/*
+table, th, td {
+  border: 1px solid;
+}
+*/
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: coral;}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid;
+}
+ul.e {
+  list-style-image: url('sqpurple.jpeg');
+}
+ul.a {
+  list-style-type: circle;
+}
+
+ul.b {
+  list-style-type: square;
+}
+
+ol.c {
+  list-style-type: upper-roman;
+}
+
+ol.d {
+  list-style-type: lower-alpha;
+}
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover {
+  color: hotpink;
+  text-decoration: underline;
+  background-color: lightgreen;
+}
+a:active {
+  color: blue;
+  text-decoration: underline;
+  background-color: hotpink;
+}
+p.dotted {border-style: dotted;}     /* outlines the same but outside the border */
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.dotted {outline-style: dotted;}
+p.dashed {outline-style: dashed;}
+p.solid {outline-style: solid;}
+p.double {outline-style: double;}
+p.groove {outline-style: groove;}
+p.ridge {outline-style: ridge;}
+p.inset {outline-style: inset;}
+p.outset {outline-style: outset;}
+p.one{
+    border-style: solid;
+    border-width: 700px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
+    border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
+    border-radius: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    max-width: 500px;
+    outline-style: solid;
+    outline-color: red;
+    outline-width: thin;
+    text-decoration: underline;
+    text-decoration-color: green;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
+    text-shadow: 2px 2px;
+    font-family: "Times New Roman", Times, serif;
+    /* font backup backup*/
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-size: 40px;
+
+}
+p.four {
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: medium;
+  font-style: oblique;
+  font-variant: small-caps;
+  font-size: 2.5em; /* 40px/16=2.5em */
+}
+p.three {
+  border-style: dotted solid double;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thick;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: 4px;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 100%;
+}
+p.two {
+  border-style: dotted solid;
+}
+p.shorthand{
+    border: 5px solid red;
+    margin: 25px 50px 75px 100px;
+    padding: 25px 50px 75px 100px;
+    outline: thin ridge pink;
+    box-sizing: border-box;
+    text-decoration: underline red wavy 1px;
+    /* top right bottom left */
+    text-shadow: 0 2px 2px red, 2px 2px 2px blue, 0 0 2px black;
+    /* down right blur again and again */
+}
+p.align{
+    border-left: 6px solid green;
+}
 body {
   background-color: lightblue;
+  font-family: "Sofia", sans-serif;
 }
+div {
+  width: 300px;
+  margin: auto;
+  border: 1px solid red;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  height: 200px;
+  width: 50%;
+  margin: 20px;
+}
+p.ex1 {
+  margin-left: inherit;
+}
+/* 
+body {
+  background: #ffffff url("cow.jpeg") no-repeat right top;         order(color image repeat attachment position)
+}
+body {
+  background-image: url("cow.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body {
+  background-image: url("cow.jpeg");
+  background-repeat: repeat-x;
+  background-position: right top;
+  background-attachment: scroll;
+} */
 p {
   color: orangered;
   font-family: verdana;
   font-size: 20px;
   text-align: center;
+  text-align-last: right;
+  text-decoration: line-through;
+  text-transform: uppercase;
+  /* direction: rtl;
+  unicode-bidi: bidi-override; */
 }
 #para1 {
   text-align: center;
@@ -27,6 +204,28 @@ p.center {
 * {
   text-align: center;
   color: blue;
+  text-transform: capitalize;
+}
+div {
+  background-color: lightblue;
+  opacity: 1;
+}
+div.first {
+  opacity: 0.1;
+}
+h1 {
+  text-indent: 50px;
+  margin: 0 0 50px 0;
+  text-decoration: overline;
+  text-align: justify;
+  line-height: 0.8;
+}
+h2 {
+  margin: 20px 0 0 0;
+  letter-spacing: -2px;
+  word-spacing: -2px;
+  white-space: nowrap;
+  text-decoration: overline underline;
 }
 /*
 h1 {
@@ -59,7 +258,107 @@ h1, h2, p {
 <p>This is a paragraph.</p>
 <h1 style="color:blue;text-align:center;">This is a heading with inline css</h1>
 <p style="color:linen;">This is a paragraph with in line css.</p>
+<hr>
+<h1 style="background-color:DodgerBlue;">Hello World</h1>
+<p style="background-color:Tomato;">background change</p>
+<hr>
+<h1 style="color:Tomato;">Hello World</h1>
+<p style="color:DodgerBlue;">text change</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+<hr>
+<h1 style="border:2px solid Tomato;">border change</h1>
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
+<h1 style="border:2px solid Violet;">Hello World</h1>
+<p>border styles(dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden)</p>
+<hr>
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:#ff6347;">...</h1>
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+<hr>
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 
+<div class="first">
+    <h1>div style+auto</h1>
+</div>
+<p class="one">border thickness and color </p>
+<p class="four">4 different border styles.</p>
+<p class="three">3 different border styles.</p>
+<p class="two">2 different border styles.</p>
+<p class="one">1 border style.</p>
+<p class="shorthand">shorthanded style</p>
+<p class="align">aligned border</p>
+<div>
+<p class="ex1">This paragraph has an inherited left margin (from the div element).</p>
+</div>
+<p>In this example the h1 element has a bottom margin of 50px and the h2 element has a top margin of 20px. So, the vertical margin between h1 and h2 should have been 70px (50px + 20px). However, due to margin collapse, the actual margin ends up being 50px.</p>
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<p class="shorthand">Padding and element width - with box-sizing</p>
+<p style="vertical-align: baseline">An <img src="sqpurple.jpeg" width="9" height="9"> image with a default alignment.</p> 
+<p style="vertical-align: text-top">An <img src="sqpurple.jpeg" width="9" height="9"> image with a text-top alignment.</p> 
+<p style="vertical-align: text-bottom">An <img src="sqpurple.jpeg" width="9" height="9"> image with a text-bottom alignment.</p>
+<p style="vertical-align: sub">An <img src="sqpurple.jpeg" width="9" height="9"> image with a sub alignment.</p> 
+<p style="vertical-align: super">An <img src="sqpurple.jpeg" width="9" height="9"> image with a super alignment.</p>
+<h1 style="font-size:10vw;">Responsive Text</h1>
+<h1 class="font-effect-fire">Sofia on Fire</h1>
+<i class="fas fa-cloud"></i>
+<i class="fas fa-heart"></i>
+<i class="fas fa-car"></i>
+<i class="fas fa-file"></i>
+<i class="fas fa-bars"></i>
+<i class="glyphicon glyphicon-cloud"></i>
+<i class="glyphicon glyphicon-remove"></i>
+<i class="glyphicon glyphicon-user"></i>
+<i class="glyphicon glyphicon-envelope"></i>
+<i class="glyphicon glyphicon-thumbs-up"></i>
+<i class="material-icons">cloud</i>
+<i class="material-icons">favorite</i>
+<i class="material-icons">attachment</i>
+<i class="material-icons">computer</i>
+<i class="material-icons">traffic</i>
+<a href="http://w3schools.com">This is a link</a>
+<ul class="a">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Coca Cola</li>
+</ul>
+<ul class="b">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Coca Cola</li>
+</ul>
+<ol class="c">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Coca Cola</li>
+</ol>
+<ol class="d">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Coca Cola</li>
+</ol>
+<ul class="e">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Coca Cola</li>
+</ul>
 
+<div style="overflow-x: auto;">
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+  </tr>
+</table>
+</div>
 </body>
 </html>
