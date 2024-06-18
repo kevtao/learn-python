@@ -11,6 +11,16 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "envFile": "${workspaceFolder}/.envrc"
+        },
+        {
+            "name": "Node.js Debugger",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${file}",
+            "envFile": "${workspaceFolder}/.envrc.js"
         }
     ]
 }
