@@ -510,3 +510,27 @@ const hello = (name, msg) => {
   console.log(`hi ${name}, ${msg}`);
 };
 hello("lan ga", "you suck");
+
+const originalArray = [1, 2, 3];
+const copiedArray1 = originalArray;
+const copiedArray2 = [...originalArray];
+copiedArray1[1] = 4;
+console.log(copiedArray1); // [1, 4, 3]
+console.log(copiedArray2); // [1, 2, 3]
+
+const originalObject = { name: "lan ba", smarts: "dumb" };
+const copiedObject1 = originalObject;
+const copiedObject2 = { ...originalObject };
+copiedObject1.smarts = "stupid";
+console.log(copiedObject1);
+console.log(copiedObject2);
+
+const users = [
+  { name: "Wenwei", age: 48 },
+  { name: "Sean", age: 18 },
+  { name: "Kevin", age: 16 },
+];
+const over20 = users.filter(x => x.age > 20);
+const ages = users.map(x => x.age);
+console.log(ages);
+console.log(JSON.stringify(over20));
