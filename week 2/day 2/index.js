@@ -557,3 +557,25 @@ function calculate(a, b) {
 }
 
 const [add, subtract, multiply, divide] = calculate(4, 7);
+
+const model = 'Mustang';
+
+const vehicleOne = {
+  brand: 'Ford',
+  model,      // sets model = model which is established
+  type: 'car',
+  year: 2021, 
+  color: 'red'
+}
+
+myVehicle(vehicleOne);
+
+// old way
+function myVehicle(vehicle) {
+  const message = 'My ' + vehicle.type + ' is a ' + vehicle.color + ' ' + vehicle.brand + ' ' + vehicle.model + '.';
+}
+
+// new way
+function myVehicle({type, color, brand, model}) {
+  const message = 'My ' + type + ' is a ' + color + ' ' + brand + ' ' + model + '.';
+}
