@@ -530,7 +530,30 @@ const users = [
   { name: "Sean", age: 18 },
   { name: "Kevin", age: 16 },
 ];
-const over20 = users.filter(x => x.age > 20);
-const ages = users.map(x => x.age);
+const over20 = users.filter((x) => x.age > 20);
+const ages = users.map((x) => x.age);
 console.log(ages);
 console.log(JSON.stringify(over20));
+
+const vehicles = ["mustang", "f-150", "expedition"];
+
+// old way
+const car1 = vehicles[0];
+const truck = vehicles[1];
+const suv = vehicles[2];
+
+// new way
+const [car_1, truck1, suv1] = vehicles;
+//or
+const [car_2, , suv2] = vehicles;
+
+function calculate(a, b) {
+  const add = a + b;
+  const subtract = a - b;
+  const multiply = a * b;
+  const divide = a / b;
+
+  return [add, subtract, multiply, divide];
+}
+
+const [add, subtract, multiply, divide] = calculate(4, 7);
