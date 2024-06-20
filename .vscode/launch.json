@@ -21,6 +21,15 @@
             ],
             "program": "${file}",
             "envFile": "${workspaceFolder}/.envrc.js"
+        },
+        {
+            "name": "Debug React App",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/week 2/day 3/my-app/src",
+            "sourceMaps": true,
+            "skipFiles": ["node_modules/**"]
         }
     ]
 }
