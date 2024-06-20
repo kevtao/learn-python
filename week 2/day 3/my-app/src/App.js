@@ -77,7 +77,7 @@ const movielist = [
 
 function App() {
   return (
-    <div style = {{backgroundColor: "#BABABA"}}>
+    <div style = {{backgroundColor: "#BABABA"}}>     
       <h1 style = {{backgroundColor: "#BABABA", textAlign: "center"}}>Movie List</h1>
       <MoviesList movies={movielist} daddy='taowenwei'/>
     </div>
@@ -87,3 +87,8 @@ function App() {
 export default App;
 
 
+
+
+
+
+//    {f string  {  css instead of jsx}}
