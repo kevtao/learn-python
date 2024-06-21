@@ -5,12 +5,38 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useGlobalContext } from "./StateContext";
 
-const MoviesList = ({ movies, daddy }) => {
+const MoviesList = () => {
+  const {
+    state: { currYear },
+  } = useGlobalContext();
+
+  const [movies, setMovies] = React.useState([]);
+  React.useEffect(() => {
+    // Define the fetch function
+    if (!!currYear) {
+      (async () => {
+        try {
+          const response = await fetch(
+            `http://127.0.0.1:5000/movies/year/${currYear}`
+          ); // Replace with your API endpoint
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          setMovies(data);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }
+  }, [currYear]);
+
   return (
     <div
       style={{
@@ -21,10 +47,7 @@ const MoviesList = ({ movies, daddy }) => {
       }}
     >
       {movies.map((movie, index) => (
-        <Card
-          key={index}
-          style={{ marginBottom: 10, width: "50%" }}
-        >
+        <Card key={index} style={{ marginBottom: 10, width: "50%" }}>
           <CardContent style={{ paddingBottom: 10 }}>
             <CardHeader
               avatar={<Avatar sx={{ bgcolor: [500] }}>{movie.title[0]}</Avatar>}
@@ -38,7 +61,7 @@ const MoviesList = ({ movies, daddy }) => {
             <CardMedia
               component="img"
               height={300}
-              image={movie.picture}
+              image={movie.poster}
               alt="Not Avaliable"
             />
             <Typography variant="body2" component="p">
