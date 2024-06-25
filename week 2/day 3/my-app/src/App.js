@@ -1,16 +1,37 @@
 import "./App.css";
-import MoviesList from "./MoviesList";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import BasicSelect from "./UniqueYears";
+import MoviesList from "./MoviesList";
+import About from "./About";
 
 function App() {
   return (
-    <div id="hello world" style={{ backgroundColor: "#BABABA" }}>
-      <div style={{ height: 40 }}></div>
-      <h1 style={{ marginTop: 0, textAlign: "center" }}>Movie List</h1>
-      <BasicSelect />
-      <MoviesList />
-    </div>
+    <Router>
+      <div id="hello world" style={{ backgroundColor: "#BABABA" }}>
+        <div style={{ height: 40 }}></div>
+        <Routes>
+          <Route path="/" element={<HomeWithButton />} />
+          <Route path="/detail/:_id" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
+const HomeWithButton = () => {
+  return (
+    <div>
+      <h1 style={{ textAlign: "center" }}>Movie List</h1>
+      <BasicSelect />
+      <MoviesList />
+      <div style={{ textAlign: "center", marginTop: "20px" }}></div>
+    </div>
+  );
+};
 
 export default App;

@@ -34,23 +34,36 @@ const BasicSelect = () => {
   }, []); // Empty dependency array means this runs once when the component mounts
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Years</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={currYear}
-          label="Years"
-          onChange={handleChange}
-        >
-          {years.map((year) => (
-            <MenuItem key={year} value={year}>
-              {year}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <Box 
+      sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+      }}
+    >
+      <Box 
+        sx={{ 
+          width: 90,  
+          minWidth: 90, 
+          backgroundColor: 'lightgrey' // Optional: for better visibility
+        }}
+      >
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Years</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={currYear}
+            label="Years"
+            onChange={handleChange}
+          >
+            {years.map((year) => (
+              <MenuItem key={year} value={year}>
+                {year}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        </Box>
     </Box>
   );
 };

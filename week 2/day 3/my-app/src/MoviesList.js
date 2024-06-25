@@ -10,11 +10,15 @@ import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useGlobalContext } from "./StateContext";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useNavigate } from 'react-router-dom';
 
 const MoviesList = () => {
   const {
     state: { currYear },
   } = useGlobalContext();
+
+  const navigate = useNavigate();
 
   const [movies, setMovies] = React.useState([]);
   React.useEffect(() => {
@@ -36,6 +40,10 @@ const MoviesList = () => {
       })();
     }
   }, [currYear]);
+  const handleButtonClick = (_id) => {
+    navigate(`/detail/${_id}`);
+  };
+
 
   return (
     <div
@@ -73,6 +81,9 @@ const MoviesList = () => {
               </IconButton>
               <IconButton aria-label="share">
                 <ShareIcon />
+              </IconButton>
+              <IconButton onClick={() => handleButtonClick(movie._id)} style={{ marginLeft: 'auto' }}>
+                <MoreVertIcon />
               </IconButton>
             </CardActions>
           </CardContent>
