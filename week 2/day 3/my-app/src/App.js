@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
 } from "react-router-dom";
 import BasicSelect from "./UniqueYears";
 import MoviesList from "./MoviesList";

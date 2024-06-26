@@ -4,6 +4,8 @@ import certifi
 import os
 from bson.objectid import ObjectId
 from flask_cors import CORS
+from bson import json_util
+import json
 
 connection_string = os.environ['MongoConnection']
 client = MongoClient(connection_string, tlsCAFile=certifi.where())
@@ -21,9 +23,9 @@ def _unused():
                               "$set": {"year": int(replaced)}})
 
 
-def serialize_doc(doc):
-    doc['_id'] = str(doc['_id'])
-    return doc
+def mongo2json(doc):
+    jsonStr = json_util.dumps(doc)
+    return json.loads(jsonStr)
 
 
 @app.route('/movies', methods=['POST'])
@@ -41,17 +43,31 @@ def create_movie():
 # GET: Retrieve all movies
 def get_movies(year):
     movies = list(collection.find({"year": year}))
-    movies = [serialize_doc(movie) for movie in movies]
+    movies = [mongo2json(movie) for movie in movies]
     return jsonify(movies)
 
 
 @app.route('/movies/<string:movie_id>', methods=['GET'])
 # GET: Retrieve a single movie by id
 def get_movie(movie_id):
-    movie = collection.find_one({"_id": ObjectId(movie_id)})
-    if movie is None:
+    movies = list(collection.aggregate(pipeline=[
+        {
+            "$match": {
+                "_id": ObjectId(movie_id)
+            }
+        },
+        {
+            "$lookup": {
+                "from": "comments",
+                "localField": "_id",
+                "foreignField": "movie_id",
+                "as": "comments"
+            }
+        },
+    ]))
+    if len(movies) == 0:
         return jsonify({'error': 'movie not found'}), 404
-    return jsonify(serialize_doc(movie))
+    return jsonify(mongo2json(movies[0]))
 
 
 @app.route('/movies/<string:movie_id>', methods=['PUT'])
@@ -65,7 +81,7 @@ def update_movie(movie_id):
     if result.matched_count == 0:
         return jsonify({'error': 'movie not found'}), 404
     movie = collection.find_one({'_id': ObjectId(movie_id)})
-    return jsonify(serialize_doc(movie))
+    return jsonify(mongo2json(movie))
 
 
 @app.route('/movies/<string:movie_id>', methods=['DELETE'])

@@ -3,8 +3,12 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { useParams } from "react-router-dom";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const DemoPaper = styled(Paper)(({ theme }) => ({
+const Title = styled(Paper)(({ theme }) => ({
   width: '100vh',
   padding: theme.spacing(1),
   ...theme.typography.body2,
@@ -42,14 +46,63 @@ const About = () => {
   }
 
   return (
-    <div style={{ height: '100vh', backgroundColor: "#BABABA", paddingLeft: '20px'}}>
+    <div style={{ height: '100vh', backgroundColor: "#BABABA", paddingLeft: '20px', paddingRight: '20px'}}>
     <Stack direction="row" spacing={2}>
-      <DemoPaper variant="elevation"><h1>{movie.title}</h1></DemoPaper>
+      <Title variant="elevation">
+        <h1>{movie.title}</h1>
+        <p>{movie.plot}</p>
+      </Title>
     </Stack>
-      <p>{movie.plot}</p>
-      <p>{movie.genres}</p>
-      <p>{movie.directors}</p>
-      <p>{movie.released}</p>
+      <div style={{marginTop: 20}}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+          >
+            Genres
+          </AccordionSummary>
+          <AccordionDetails>
+            {movie.genres}
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2-content"
+            id="panel2-header"
+          >
+            Directors
+          </AccordionSummary>
+          <AccordionDetails>
+            {movie.directors}
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3-content"
+            id="panel3-header"
+          >
+            Release Date
+          </AccordionSummary>
+          <AccordionDetails>
+            {movie.released}
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel4-content"
+            id="panel4-header"
+          >
+            Comments
+          </AccordionSummary>
+          <AccordionDetails>
+
+          </AccordionDetails>
+        </Accordion>
+      </div>
     </div>
   );
 };
