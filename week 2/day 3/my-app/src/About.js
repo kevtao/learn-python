@@ -87,19 +87,7 @@ const About = () => {
             Release Date
           </AccordionSummary>
           <AccordionDetails>
-            {movie.released}
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4-content"
-            id="panel4-header"
-          >
-            Comments
-          </AccordionSummary>
-          <AccordionDetails>
-
+            {movie.released.$date}
           </AccordionDetails>
         </Accordion>
       </div>

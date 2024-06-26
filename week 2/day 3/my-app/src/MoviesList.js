@@ -41,7 +41,7 @@ const MoviesList = () => {
     }
   }, [currYear]);
   const handleButtonClick = (_id) => {
-    navigate(`/detail/${_id}`);
+    navigate(`/detail/${_id.$oid}`);
   };
 
 
