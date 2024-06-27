@@ -8,8 +8,6 @@ import json
 
 connection_string = os.environ['MongoConnection']
 print(connection_string)
-connection_string = 'mongodb+srv://kevin:OtvYLCoghun0wPLr@cluster0.pnh73bn.mongodb.net/'
-print(connection_string)
 client = MongoClient(connection_string, tlsCAFile=certifi.where())
 db = client.sample_mflix
 collection = db.movies
