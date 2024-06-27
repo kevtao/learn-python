@@ -4,7 +4,7 @@ Resources:
   MyApiFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: lambdas/app.lambda_handler
+      Handler: day3.lambda_handler
       Runtime: python3.11
       Events:
         YearsApi:

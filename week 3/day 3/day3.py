@@ -7,11 +7,10 @@ from bson import json_util
 import json
 
 connection_string = os.environ['MongoConnection']
-print(connection_string)
 client = MongoClient(connection_string, tlsCAFile=certifi.where())
 db = client.sample_mflix
 collection = db.movies
-
+    
 def mongo2json(doc):
     jsonStr = json_util.dumps(doc)
     return json.loads(jsonStr)
