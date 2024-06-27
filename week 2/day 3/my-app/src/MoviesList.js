@@ -33,7 +33,8 @@ const MoviesList = () => {
             throw new Error("Network response was not ok");
           }
           const data = await response.json();
-          setMovies(data);
+          const sliced = data.slice(0, 50)
+          setMovies(sliced);
         } catch (error) {
           console.log(error);
         }
