@@ -21,7 +21,7 @@ const BasicSelect = () => {
     // Define the fetch function
     (async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/years"); // Replace with your API endpoint
+        const response = await fetch("https://1b57cv9bpl.execute-api.us-west-2.amazonaws.com/Prod/years"); // Replace with your API endpoint
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

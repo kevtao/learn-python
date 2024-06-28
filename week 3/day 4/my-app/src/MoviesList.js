@@ -27,7 +27,7 @@ const MoviesList = () => {
       (async () => {
         try {
           const response = await fetch(
-            `http://127.0.0.1:5000/movies/year/${currYear}`
+            `https://1b57cv9bpl.execute-api.us-west-2.amazonaws.com/Prod/movies/year/${currYear}`
           ); // Replace with your API endpoint
           if (!response.ok) {
             throw new Error("Network response was not ok");

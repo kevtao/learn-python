@@ -23,6 +23,7 @@ def lambda_handler(event, context):
     if path == '/years' and http_method == 'GET':
         return {
             'statusCode': 200,
+            'headers': {'Access-Control-Allow-Origin': '*'},
             'body': json.dumps(unique_years())
         }
     elif path.startswith('/movies/') and http_method == 'GET':
@@ -30,17 +31,20 @@ def lambda_handler(event, context):
             year = path.split('/')[-1]
             return {
                 'statusCode': 200,
+                'headers': {'Access-Control-Allow-Origin': '*'},
                 'body': json.dumps(get_movies(year))
             }
         else:
             movie_id = path.split('/')[-1]
             return {
                 'statusCode': 200,
+                'headers': {'Access-Control-Allow-Origin': '*'},
                 'body': json.dumps(get_movie(movie_id))
             }
     else:
         return {
             'statusCode': 404,
+            'headers': {'Access-Control-Allow-Origin': '*'},
             'body': json.dumps({'message': 'Not Found'})
         }
 

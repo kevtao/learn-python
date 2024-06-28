@@ -26,7 +26,7 @@ const About = () => {
     // Define the fetch function to get movie details by id
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/movies/${_id}`);
+        const response = await fetch(`https://1b57cv9bpl.execute-api.us-west-2.amazonaws.com/Prod/movies/${_id}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
