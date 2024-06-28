@@ -10,6 +10,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
+import 'animate.css';
+import CardMedia from "@mui/material/CardMedia";
+import './App.css'
+
 
 const Title = styled(Paper)(({ theme }) => ({
   width: "100vh",
@@ -57,7 +61,7 @@ const About = () => {
     >
       <Stack direction="row" spacing={2}>
         <Title variant="elevation">
-          <h1>{movie.title}</h1>
+          <h1 class="animate__animated animate__bounceInDown">{movie.title}</h1>
           <p>{movie.plot}</p>
           {movie.tomatoes &&
           movie.tomatoes.viewer &&
@@ -73,6 +77,12 @@ const About = () => {
           ) : (
             <Typography variant="body2">No rating available</Typography>
           )}
+            <CardMedia class="flip-in-vert-right"
+              component="img"
+              height={460}
+              image={movie.poster}
+              alt="Not Avaliable"
+            />
         </Title>
       </Stack>
       <div style={{ marginTop: 20 }}>
